@@ -3,9 +3,8 @@ package objectsandclassesquestions;
 public class Tally
 {
     //Variables
-    static int count;
-    private int limitVariable;
-    private int tallyCount;
+    static int count = -1;
+    private int limitVariable, tallyCount, id;
     
     
     //Contructors
@@ -14,6 +13,7 @@ public class Tally
         count++;
         limitVariable = 0;
         tallyCount = 0;
+        setID(count);
     }
     
     
@@ -36,6 +36,16 @@ public class Tally
     public void setTallyCount(int tallyCount)
     {
         this.tallyCount = tallyCount;
+    }
+
+    private void setID(int id)
+    {
+        this.id = id;
+    }
+
+    public int getID()
+    {
+        return this.id;
     }
     
     

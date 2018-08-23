@@ -3,7 +3,7 @@ package objectsandclassesquestions;
 public class Address
 {
     //Variables
-    static int count;
+    static int count = -1;
     private int houseNumber, appartmentNumber, postalCode, id;
     private String street, city, state;
     
@@ -120,8 +120,8 @@ public class Address
     //Methods
     public void print()
     {
-        System.out.println("\n" + this.getID() + "\n" + "Street Name: " + this.getStreet() + "\n" + "City: " + this.getCity()
-                + " State: " + this.getState() + " Postal Code: " + this.getPostalCode()+ "\n");
+        System.out.println("\n" + "Address ID: " +  this.getID()+ "\n" + "Street Name: " + this.getStreet() + "\n"
+                + "City: " + this.getCity() + " State: " + this.getState() + " Postal Code: " + this.getPostalCode()+ "\n");
     }
     
     public boolean comesBefore(Address other)
