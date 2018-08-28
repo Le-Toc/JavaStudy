@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Main.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ObjectsAndClassesQuestions&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">objectsandclassesquestions</a> &gt; <span class="el_source">Main.java</span></div><h1>Main.java</h1><pre class="source lang-java linenums">package objectsandclassesquestions;
+
+import java.util.*;
+
+<span class="fc" id="L5">public class Main</span>
+{
+    public static void main(String[] args)
+    {
+<span class="fc" id="L9">        Main theApp = new Main();</span>
+<span class="fc" id="L10">        theApp.start();</span>
+<span class="fc" id="L11">    }</span>
+
+    private void start()
+    {
+        //question2();
+<span class="fc" id="L16">        question4();</span>
+<span class="fc" id="L17">        question5();</span>
+<span class="fc" id="L18">    }</span>
+    
+    private void question2()
+    {
+        /*
+        Simulate a tally counter that can be used to admit a limited number of people. First, the limit is set with a call public
+        void setLimit(int maximum).  If the count button was clicked more often than the limit, simulate an alarm by printing out a
+        message “Limit exceeded”.
+        */
+        
+<span class="nc" id="L28">        Tally tally = new Tally();</span>
+<span class="nc" id="L29">        tally.setLimit(10);</span>
+        
+<span class="nc bnc" id="L31" title="All 2 branches missed.">        for(int i = 0; i &lt; 100; i++)</span>
+        {
+<span class="nc" id="L33">            tally.increaseTally();</span>
+        }
+<span class="nc" id="L35">    }</span>
+
+    private void question4()
+    {
+        /*
+        Implement a class Address. An address has a house number, a street, an optional apartment number, a city, a state, and a
+        postal code. Supply two constructors: one with an apartment number and one without. Supply a print method that prints the
+        address with the street on one line and the city, state, and zip code on the next line.  Supply a method public boolean
+        comesBefore(Address other) that tests whether this address comes before another when the addresses are compared by postal
+        code.
+        */
+        
+<span class="fc" id="L47">        Address a0 = new Address();</span>
+<span class="fc" id="L48">        Address a1 = new Address(1, 1, 0001, &quot;Ballinurd&quot;, &quot;Kilkerley&quot;, &quot;Dundalk&quot;);</span>
+<span class="fc" id="L49">        Address a2 = new Address(2, 2, &quot;24 Willow Grove&quot;, &quot;Carrick Rd&quot;, &quot;Dundalk&quot;);</span>
+        //a0.print();
+        //a1.print();
+        //a2.print();
+        
+        
+<span class="fc" id="L55">        System.out.println(&quot;Test Add&quot;);</span>
+        
+<span class="fc" id="L57">        ArrayList&lt;Address&gt; addressList = new ArrayList&lt;Address&gt;();</span>
+<span class="fc" id="L58">        addressList.add(a0);</span>
+<span class="fc" id="L59">        addressList.add(a1);</span>
+<span class="fc" id="L60">        addressList.add(a2);</span>
+        
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        for(Address a : addressList)</span>
+<span class="fc" id="L63">            a.print();</span>
+        
+        
+        
+<span class="fc" id="L67">        System.out.println(&quot;Test Add With An Index&quot;);</span>
+        
+<span class="fc" id="L69">        Address newAddress = new Address(3,3, 0003, &quot;123&quot;, &quot;Fack St&quot;, &quot;Louth&quot;);</span>
+<span class="fc" id="L70">        addressList.add(1, newAddress);</span>
+        
+<span class="fc bfc" id="L72" title="All 2 branches covered.">        for(Address a : addressList)</span>
+<span class="fc" id="L73">            a.print();</span>
+        
+        
+        
+<span class="fc" id="L77">        System.out.println(&quot;Test Clear&quot;);</span>
+<span class="fc" id="L78">        addressList.clear();</span>
+        
+<span class="pc bpc" id="L80" title="1 of 2 branches missed.">        for(Address a : addressList)</span>
+<span class="nc" id="L81">            a.print();</span>
+        
+        
+        
+<span class="fc" id="L85">        System.out.println(&quot;Test Clone&quot;);</span>
+        
+<span class="fc" id="L87">        addressList.add(a0);</span>
+<span class="fc" id="L88">        addressList.add(a1);</span>
+<span class="fc" id="L89">        addressList.add(a2);</span>
+        
+<span class="fc" id="L91">        ArrayList&lt;Address&gt; secondList = (ArrayList) addressList.clone();</span>
+        
+<span class="fc bfc" id="L93" title="All 2 branches covered.">        for(Address a : secondList)</span>
+<span class="fc" id="L94">            a.print();</span>
+        
+        
+        
+<span class="fc" id="L98">        System.out.println(&quot;Test Contains Using A Predevined Object&quot;);</span>
+        
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">        if(addressList.contains(a0))</span>
+<span class="fc" id="L101">            System.out.println(&quot;True&quot;);</span>
+        else 
+<span class="nc" id="L103">            System.out.println(&quot;False&quot;);</span>
+        
+        
+<span class="fc" id="L106">        System.out.println(&quot;Test Contains Using A Declared Object in the called&quot;);</span>
+        
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">        if(addressList.contains(new Address(1, 1, 0001, &quot;Ballinurd&quot;, &quot;Kilkerley&quot;, &quot;Dundalk&quot;)))</span>
+<span class="nc" id="L109">            System.out.println(&quot;True&quot;);</span>
+        else 
+<span class="fc" id="L111">            System.out.println(&quot;False&quot;);</span>
+        
+        
+<span class="fc" id="L114">        System.out.println(&quot;Test Contains Using A Predevined Object but with a different name&quot;);</span>
+        
+<span class="fc" id="L116">        Address a4 = new Address(1, 1, 0001, &quot;Ballinurd&quot;, &quot;Kilkerley&quot;, &quot;Dundalk&quot;);</span>
+        
+<span class="pc bpc" id="L118" title="1 of 2 branches missed.">        if(addressList.contains(a4))</span>
+<span class="nc" id="L119">            System.out.println(&quot;True&quot;);</span>
+        else 
+<span class="fc" id="L121">            System.out.println(&quot;False&quot;);</span>
+        
+        
+<span class="fc" id="L124">        System.out.println(&quot;Contains will return true only if you search for an object in the list with the same name&quot;);</span>
+        
+        
+        
+<span class="fc" id="L128">        System.out.println(&quot;Test indexOf&quot;);</span>
+<span class="fc" id="L129">        System.out.println(addressList.indexOf(a2));</span>
+        
+        
+<span class="fc" id="L132">        System.out.println(&quot;Test isEmpty&quot;);</span>
+<span class="pc bpc" id="L133" title="1 of 2 branches missed.">        if(addressList.isEmpty())</span>
+<span class="nc" id="L134">            System.out.println(&quot;List is empty&quot;);</span>
+        
+<span class="pc bpc" id="L136" title="1 of 2 branches missed.">        if(!addressList.isEmpty())</span>
+<span class="fc" id="L137">            System.out.println(&quot;List is not empty&quot;);</span>
+        
+<span class="fc" id="L139">        addressList.clear();</span>
+        
+<span class="pc bpc" id="L141" title="1 of 2 branches missed.">        if(addressList.isEmpty())</span>
+<span class="fc" id="L142">            System.out.println(&quot;List is empty&quot;);</span>
+        
+        
+        
+<span class="fc" id="L146">        System.out.println(&quot;Test remove&quot;);</span>
+        
+<span class="fc" id="L148">        addressList.add(a0);</span>
+<span class="fc" id="L149">        addressList.add(a1);</span>
+<span class="fc" id="L150">        addressList.add(a2);</span>
+        
+<span class="fc bfc" id="L152" title="All 2 branches covered.">        for(Address a : addressList)</span>
+<span class="fc" id="L153">            a.print();</span>
+        
+<span class="fc" id="L155">        addressList.remove(a0);</span>
+        
+<span class="fc bfc" id="L157" title="All 2 branches covered.">        for(Address a : addressList)</span>
+<span class="fc" id="L158">            a.print();</span>
+        
+<span class="fc" id="L160">        addressList.add(0, a0);</span>
+        
+<span class="fc bfc" id="L162" title="All 2 branches covered.">        for(Address a : addressList)</span>
+<span class="fc" id="L163">            a.print();</span>
+        
+<span class="fc" id="L165">        addressList.remove(0);</span>
+        
+<span class="fc bfc" id="L167" title="All 2 branches covered.">        for(Address a : addressList)</span>
+<span class="fc" id="L168">            a.print();</span>
+        
+        
+<span class="fc" id="L171">        System.out.println(&quot;Test remove all&quot;);</span>
+        
+<span class="fc" id="L173">        addressList.removeAll(secondList);</span>
+        
+        
+        
+        
+        
+        //Test comesBefore
+        //First Test should come out true
+<span class="fc" id="L181">        boolean doesComeBefore = a1.comesBefore(a2);</span>
+        //System.out.println(doesComeBefore);
+        
+        //Should come out false
+<span class="fc" id="L185">        doesComeBefore = a2.comesBefore(a1);</span>
+        //System.out.println(doesComeBefore);
+        
+        //Should come out false
+<span class="fc" id="L189">        doesComeBefore = a1.comesBefore(a1);</span>
+        //System.out.println(doesComeBefore);
+<span class="fc" id="L191">    }</span>
+
+    private void question5()
+    {
+<span class="fc" id="L195">        System.out.println(&quot;This is a test to see if netbeans can run at the same time as watching a youtube video&quot;);</span>
+<span class="fc" id="L196">        System.out.println(&quot;So acually writing the code seems to be fine, however Joe Rogan froze for a second when the code was compiling&quot;);</span>
+<span class="fc" id="L197">        System.out.println(&quot;Next step would be to further test how netbeans works while coding.&quot;);</span>
+<span class="fc" id="L198">        System.out.println(&quot;Possible Solution:  See what it's like to edit, run, and compile java programes using he command line!  That sounds cool.&quot;);</span>
+<span class="fc" id="L199">        System.out.println(&quot;That last compile worked well.  There was no lag in the video and at the same time I moved the windows to be split 50 50&quot;);</span>
+<span class="fc" id="L200">        System.out.println(&quot;That last one was perfect&quot;);</span>
+<span class="fc" id="L201">    }</span>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -14,9 +14,9 @@ public class Main
     {
         //question2();
         question4();
-        //question5();
+        question5();
     }
-
+    
     private void question2()
     {
         /*
@@ -192,6 +192,12 @@ public class Main
 
     private void question5()
     {
+        System.out.println("This is a test to see if netbeans can run at the same time as watching a youtube video");
+        System.out.println("So acually writing the code seems to be fine, however Joe Rogan froze for a second when the code was compiling");
+        System.out.println("Next step would be to further test how netbeans works while coding.");
+        System.out.println("Possible Solution:  See what it's like to edit, run, and compile java programes using he command line!  That sounds cool.");
+        System.out.println("That last compile worked well.  There was no lag in the video and at the same time I moved the windows to be split 50 50");
+        System.out.println("That last one was perfect");
     }
 }
 

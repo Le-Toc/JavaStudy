@@ -8,7 +8,7 @@ public class Tally
     
     
     //Contructors
-    Tally()
+    public Tally()
     {
         count++;
         limitVariable = 0;
@@ -71,6 +71,11 @@ public class Tally
     public void outputError()
     {
         System.out.println("Limit exceeded.  Tally Count = " + tallyCount);
+    }
+    
+    public boolean greaterThanTen(int a, int b)
+    {
+        return false;
     }
 }
 

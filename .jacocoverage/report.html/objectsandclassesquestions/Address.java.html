@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Address.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ObjectsAndClassesQuestions&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">objectsandclassesquestions</a> &gt; <span class="el_source">Address.java</span></div><h1>Address.java</h1><pre class="source lang-java linenums">package objectsandclassesquestions;
+
+public class Address
+{
+    //Variables
+<span class="fc" id="L6">    static int count = -1;</span>
+    private int houseNumber, appartmentNumber, postalCode, id;
+    private String street, city, state;
+    
+    
+    //Constructors
+    Address()
+<span class="fc" id="L13">    {</span>
+<span class="fc" id="L14">        count++;</span>
+<span class="fc" id="L15">        this.houseNumber = 0;</span>
+<span class="fc" id="L16">        this.appartmentNumber = 0;</span>
+<span class="fc" id="L17">        this.postalCode = 0;</span>
+<span class="fc" id="L18">        this.street = &quot;null&quot;;</span>
+<span class="fc" id="L19">        this.city = &quot;null&quot;;</span>
+<span class="fc" id="L20">        this.state = &quot;null&quot;;</span>
+<span class="fc" id="L21">        setID(count);</span>
+<span class="fc" id="L22">    }</span>
+    
+    Address(int houseNumber, int appartmentNumber, int postalCode, String street, String city, String state)
+<span class="fc" id="L25">    {</span>
+<span class="fc" id="L26">        count++;</span>
+<span class="fc" id="L27">        this.houseNumber = houseNumber;</span>
+<span class="fc" id="L28">        this.appartmentNumber = appartmentNumber;</span>
+<span class="fc" id="L29">        this.postalCode = postalCode;</span>
+<span class="fc" id="L30">        this.street = street;</span>
+<span class="fc" id="L31">        this.city = city;</span>
+<span class="fc" id="L32">        this.state = state;</span>
+<span class="fc" id="L33">        setID(count);</span>
+<span class="fc" id="L34">    }</span>
+    
+    Address(int houseNumber, int postalCode, String street, String city, String state)
+<span class="fc" id="L37">    {</span>
+<span class="fc" id="L38">        count++;</span>
+<span class="fc" id="L39">        this.houseNumber = houseNumber;</span>
+<span class="fc" id="L40">        this.postalCode = postalCode;</span>
+<span class="fc" id="L41">        this.street = street;</span>
+<span class="fc" id="L42">        this.city = city;</span>
+<span class="fc" id="L43">        this.state = state;</span>
+<span class="fc" id="L44">        setID(count);</span>
+<span class="fc" id="L45">    }</span>
+    
+    
+    //Getters and Setters
+    private void setID(int id)
+    {
+<span class="fc" id="L51">        this.id = id;</span>
+<span class="fc" id="L52">    }</span>
+    
+    public int getID()
+    {
+<span class="fc" id="L56">        return this.id;</span>
+    }
+    
+    public int getHouseNumber()
+    {
+<span class="nc" id="L61">        return houseNumber;</span>
+    }
+    
+    public void setHouseNumber(int houseNumber)
+    {
+<span class="nc" id="L66">        this.houseNumber = houseNumber;</span>
+<span class="nc" id="L67">    }</span>
+    
+    public int getAppartmentNumber()
+    {
+<span class="nc" id="L71">        return appartmentNumber;</span>
+    }
+    
+    public void setAppartmentNumber(int appartmentNumber)
+    {
+<span class="nc" id="L76">        this.appartmentNumber = appartmentNumber;</span>
+<span class="nc" id="L77">    }</span>
+    
+    public int getPostalCode()
+    {
+<span class="fc" id="L81">        return postalCode;</span>
+    }
+    
+    public void setPostalCode(int postalCode)
+    {
+<span class="nc" id="L86">        this.postalCode = postalCode;</span>
+<span class="nc" id="L87">    }</span>
+    
+    public String getStreet()
+    {
+<span class="fc" id="L91">        return street;</span>
+    }
+    
+    public void setStreet(String street)
+    {
+<span class="nc" id="L96">        this.street = street;</span>
+<span class="nc" id="L97">    }</span>
+    
+    public String getCity()
+    {
+<span class="fc" id="L101">        return city;</span>
+    }
+    
+    public void setCity(String city)
+    {
+<span class="nc" id="L106">        this.city = city;</span>
+<span class="nc" id="L107">    }</span>
+    
+    public String getState()
+    {
+<span class="fc" id="L111">        return state;</span>
+    }
+    
+    public void setState(String state)
+    {
+<span class="nc" id="L116">        this.state = state;</span>
+<span class="nc" id="L117">    }</span>
+    
+    
+    //Methods
+    public void print()
+    {
+<span class="fc" id="L123">        System.out.println(&quot;\n&quot; + &quot;Address ID: &quot; +  this.getID()+ &quot;\n&quot; + &quot;Street Name: &quot; + this.getStreet() + &quot;\n&quot;</span>
+<span class="fc" id="L124">                + &quot;City: &quot; + this.getCity() + &quot; State: &quot; + this.getState() + &quot; Postal Code: &quot; + this.getPostalCode()+ &quot;\n&quot;);</span>
+<span class="fc" id="L125">    }</span>
+    
+    public boolean comesBefore(Address other)
+    {
+<span class="fc bfc" id="L129" title="All 2 branches covered.">        return this.postalCode &lt; other.postalCode;</span>
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
