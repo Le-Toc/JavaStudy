@@ -13,8 +13,9 @@ public class Main
     private void start()
     {
         //question2();
-        question4();
-        question5();
+        //question4();
+        arrayListExamples();
+        //question5();
     }
     
     private void question2()
@@ -44,73 +45,178 @@ public class Main
         code.
         */
         
+        //Create some new addresses
         Address a0 = new Address();
         Address a1 = new Address(1, 1, 0001, "Ballinurd", "Kilkerley", "Dundalk");
         Address a2 = new Address(2, 2, "24 Willow Grove", "Carrick Rd", "Dundalk");
-        //a0.print();
-        //a1.print();
-        //a2.print();
         
+        //Test the print method
+        a0.print();
+        a1.print();
+        a2.print();
         
+        //Test the comesBefore method
+        System.out.println(a0.comesBefore(a1));//Should return true
+        System.out.println(a2.comesBefore(a1));//Should return false
+        System.out.println(a1.comesBefore(a1));//Should return false
+    }
+    
+    private void arrayListExamples()
+    {
+        ArrayList<Address> addressList = new ArrayList();
+        
+        //Add
+        addressList = arrayListExampleAdd(addressList);
+        print(addressList);
+        
+        //Add With Index
+        addressList = arrayListExampleAddWithAnIndex(addressList);
+        print(addressList);
+        
+        //Clear
+        addressList = arrayListExampleClear(addressList);
+        print(addressList);
+        
+        //Clone
+        addressList = arrayListExampleAdd(addressList);
+        ArrayList<Address> addressListCopy = arrayListExampleClone(addressList);
+        print(addressListCopy);
+        
+        //Contains
+        arrayListExampleContains(addressList);
+        
+        //IndexOf
+        arrayListExampleIndexOf();
+        
+        //IsEmpty
+        arrayListExampleIsEmpty(addressList);
+        
+        //Remove
+        arrayListEeampleRemove(addressList);
+        
+        //RemoveAll
+        addressList.clear();
+        addressListCopy.clear();
+        
+        addressList = arrayListExampleAdd(addressList);
+        addressListCopy = arrayListExampleAdd(addressList);
+        
+        print(addressList, "addressList");
+        print(addressListCopy, "addressListCopy");
+        arrayListEeampleRemoveAll(addressList, addressListCopy);
+    }
+
+    private ArrayList<Address> arrayListExampleAdd(ArrayList<Address> addressList)
+    {
         System.out.println("Test Add");
         
-        ArrayList<Address> addressList = new ArrayList<Address>();
+        Address a0 = new Address();
+        Address a1 = new Address(1, 1, 0001, "Ballinurd", "Kilkerley", "Dundalk");
+        Address a2 = new Address(2, 2, "24 Willow Grove", "Carrick Rd", "Dundalk");
+        
         addressList.add(a0);
         addressList.add(a1);
         addressList.add(a2);
         
-        for(Address a : addressList)
+        return addressList;
+    }
+    
+    private void print(ArrayList<Address> addressList)
+    {
+        /*
+        Normal For Each Loop
+        
+        for (Address a : addressList)
+        {
             a.print();
+        }
+        */
         
+        //Instead of using a for each loop you can use the foreach method in arrayList
+        addressList.forEach((a) ->                                                              //Declare "a" to be temporary variable of the same type as the elements in addressList.  Then for each "a" in addressList do the following...
+        {
+            a.print();                                                                          //Call the print method that relates to the object called "a".
+        });
+    }
+    
+    private void print(ArrayList<Address> addressList, String name)
+    {
+        /*
+        Normal For Each Loop
         
+        for (Address a : addressList)
+        {
+            a.print();
+        }
+        */
         
+        //Instead of using a for each loop you can use the foreach method in arrayList
+        addressList.forEach((a) ->                                                              //Declare "a" to be temporary variable of the same type as the elements in addressList.  Then for each "a" in addressList do the following...
+        {
+            System.out.println(name + a.getID());
+            a.print();                                                                          //Call the print method that relates to the object called "a".
+        });
+    }
+
+    private ArrayList<Address> arrayListExampleAddWithAnIndex(ArrayList<Address> addressList)
+    {
         System.out.println("Test Add With An Index");
         
         Address newAddress = new Address(3,3, 0003, "123", "Fack St", "Louth");
         addressList.add(1, newAddress);
         
-        for(Address a : addressList)
-            a.print();
-        
-        
-        
+        return addressList;
+    }
+
+    private ArrayList<Address> arrayListExampleClear(ArrayList<Address> addressList)
+    {
         System.out.println("Test Clear");
         addressList.clear();
-        
-        for(Address a : addressList)
-            a.print();
-        
-        
-        
+        return addressList;
+    }
+
+    private ArrayList<Address> arrayListExampleClone(ArrayList<Address> addressList)
+    {
         System.out.println("Test Clone");
         
-        addressList.add(a0);
-        addressList.add(a1);
-        addressList.add(a2);
+        ArrayList<Address> addressListCopy = (ArrayList) addressList.clone();//Will not work if you don't cast to a arrayList
         
-        ArrayList<Address> secondList = (ArrayList) addressList.clone();
+        return addressListCopy;
+    }
+
+    private void arrayListExampleContains(ArrayList<Address> addressList)
+    {
+        arrayListExampleContainsUsingAPredevinedObject(addressList);
+        arrayListExampleContainsUsingADeclaredObject(addressList);
+        arrayListExampleContainsUsingAPredevinedObjectWithDifferentName(addressList);
         
-        for(Address a : secondList)
-            a.print();
-        
-        
-        
+        System.out.println("Contains will return true only if you search for an object in the list with the same name");
+    }
+
+    private void arrayListExampleContainsUsingAPredevinedObject(ArrayList<Address> addressList)
+    {
         System.out.println("Test Contains Using A Predevined Object");
+        
+        Address a0 = new Address();
         
         if(addressList.contains(a0))
             System.out.println("True");
         else 
             System.out.println("False");
-        
-        
+    }
+
+    private void arrayListExampleContainsUsingADeclaredObject(ArrayList<Address> addressList)
+    {
         System.out.println("Test Contains Using A Declared Object in the called");
         
         if(addressList.contains(new Address(1, 1, 0001, "Ballinurd", "Kilkerley", "Dundalk")))
             System.out.println("True");
         else 
             System.out.println("False");
-        
-        
+    }
+
+    private void arrayListExampleContainsUsingAPredevinedObjectWithDifferentName(ArrayList<Address> addressList)
+    {
         System.out.println("Test Contains Using A Predevined Object but with a different name");
         
         Address a4 = new Address(1, 1, 0001, "Ballinurd", "Kilkerley", "Dundalk");
@@ -119,77 +225,153 @@ public class Main
             System.out.println("True");
         else 
             System.out.println("False");
+    }
+
+    private void arrayListExampleIndexOf()
+    {
+        System.out.println("Test indexOf:");
         
+        //Tests
+        //Test 1: Test when arrayList is declared in method and elements are added
+        //Test 2: Test when empty arrayList is added in as an argument and elements are added to it in the method
+        //Test 3: Test when a full arrayList is added in as an argument and elements arn't added
         
-        System.out.println("Contains will return true only if you search for an object in the list with the same name");
+        //Test 1
+        arrayListExampleIndexOfTest1();
         
+        //Test 2
+        ArrayList<Address> addressList = new ArrayList();
+        arrayListExampleIndexOfTest2(addressList);
         
-        
-        System.out.println("Test indexOf");
-        System.out.println(addressList.indexOf(a2));
-        
-        
-        System.out.println("Test isEmpty");
-        if(addressList.isEmpty())
-            System.out.println("List is empty");
-        
-        if(!addressList.isEmpty())
-            System.out.println("List is not empty");
-        
-        addressList.clear();
-        
-        if(addressList.isEmpty())
-            System.out.println("List is empty");
-        
-        
-        
-        System.out.println("Test remove");
+        //Test 3
+        Address a0 = new Address();
+        Address a1 = new Address(1, 1, 0001, "Ballinurd", "Kilkerley", "Dundalk");
+        Address a2 = new Address(2, 2, "24 Willow Grove", "Carrick Rd", "Dundalk");
         
         addressList.add(a0);
         addressList.add(a1);
         addressList.add(a2);
         
-        for(Address a : addressList)
-            a.print();
+        arrayListExampleIndexOfTest3(addressList);
+        
+        System.out.println("Test 3 is the only test that didn't work.");
+    }
+
+    private void arrayListExampleIndexOfTest1()
+    {
+        //Test 1: Test when arrayList is declared in method and elements are added to the arrayList in the same method
+        System.out.println("Test 1: Test when arrayList is declared in method and elements are added");
+        
+        ArrayList<Address> addressList = new ArrayList();
+        
+        Address a0 = new Address();
+        Address a1 = new Address(1, 1, 0001, "Ballinurd", "Kilkerley", "Dundalk");
+        Address a2 = new Address(2, 2, "24 Willow Grove", "Carrick Rd", "Dundalk");
+        
+        addressList.add(a0);
+        addressList.add(a1);
+        addressList.add(a2);
+        
+        System.out.println(addressList.indexOf(a0));
+        System.out.println(addressList.indexOf(a1));
+        System.out.println(addressList.indexOf(a2));
+        System.out.println(addressList.indexOf(new Address(2, 2, "24 Willow Grove", "Carrick Rd", "Dundalk")));
+    }
+
+    private void arrayListExampleIndexOfTest2(ArrayList<Address> addressList)
+    {
+        //Test 2: Test when empty arrayList is passed in as an argument and elements are added to it in the method
+        System.out.println("Test 2: Test when empty arrayList is added in as an argument and elements are added to it in the method");
+        
+        Address a0 = new Address();
+        Address a1 = new Address(1, 1, 0001, "Ballinurd", "Kilkerley", "Dundalk");
+        Address a2 = new Address(2, 2, "24 Willow Grove", "Carrick Rd", "Dundalk");
+        
+        addressList.add(a0);
+        addressList.add(a1);
+        addressList.add(a2);
+        
+        System.out.println(addressList.indexOf(a0));
+        System.out.println(addressList.indexOf(a1));
+        System.out.println(addressList.indexOf(a2));
+        System.out.println(addressList.indexOf(new Address(2, 2, "24 Willow Grove", "Carrick Rd", "Dundalk")));
+    }
+
+    private void arrayListExampleIndexOfTest3(ArrayList<Address> addressList)
+    {
+        //Test 3: Test when a full arrayList is passed in as an argument and elements are not added to the arrayList
+        System.out.println("Test 3: Test when a full arrayList is added in as an argument and elements arn't added");
+        
+        Address a0 = new Address();
+        Address a1 = new Address(1, 1, 0001, "Ballinurd", "Kilkerley", "Dundalk");
+        Address a2 = new Address(2, 2, "24 Willow Grove", "Carrick Rd", "Dundalk");
+        
+        System.out.println(addressList.indexOf(a0));
+        System.out.println(addressList.indexOf(a1));
+        System.out.println(addressList.indexOf(a2));
+        System.out.println(addressList.indexOf(new Address(2, 2, "24 Willow Grove", "Carrick Rd", "Dundalk")));
+    }
+
+    private void arrayListExampleIsEmpty(ArrayList<Address> addressList)
+    {
+        System.out.println("\nTest isEmpty:");
+        
+        System.out.println("Should print out \"List is not empty\".");
+        if(addressList.isEmpty())
+            System.out.println("List is empty");
+        
+        else if(!addressList.isEmpty())
+            System.out.println("List is not empty");
+        
+        addressList.clear();
+        
+        System.out.println("\nShould print out \"List is empty\".");   
+        if(addressList.isEmpty())
+            System.out.println("List is empty");
+    }
+
+    private void arrayListEeampleRemove(ArrayList<Address> addressList)
+    {
+        System.out.println("\nTest Remove:");
+        
+        Address a0 = new Address();
+        Address a1 = new Address(1, 1, 0001, "Ballinurd", "Kilkerley", "Dundalk");
+        Address a2 = new Address(2, 2, "24 Willow Grove", "Carrick Rd", "Dundalk");
+        
+        addressList.add(a0);
+        addressList.add(a1);
+        addressList.add(a2);
+        
+        System.out.println("Should print out the full list.");
+        print(addressList);
         
         addressList.remove(a0);
         
-        for(Address a : addressList)
-            a.print();
         
+        System.out.println("Removed the first element using the element name.");
+        print(addressList);
+        
+        
+        System.out.println("Added the first element back into the list in the same spot.");
         addressList.add(0, a0);
         
-        for(Address a : addressList)
-            a.print();
+        print(addressList);
+        
         
         addressList.remove(0);
-        
-        for(Address a : addressList)
-            a.print();
-        
-        
-        System.out.println("Test remove all");
-        
-        addressList.removeAll(secondList);
-        
-        
-        
-        
-        
-        //Test comesBefore
-        //First Test should come out true
-        boolean doesComeBefore = a1.comesBefore(a2);
-        //System.out.println(doesComeBefore);
-        
-        //Should come out false
-        doesComeBefore = a2.comesBefore(a1);
-        //System.out.println(doesComeBefore);
-        
-        //Should come out false
-        doesComeBefore = a1.comesBefore(a1);
-        //System.out.println(doesComeBefore);
+        System.out.println("Removed the first element again using the element number.");
+        print(addressList);
     }
 
+    private void arrayListEeampleRemoveAll(ArrayList<Address> addressList, ArrayList<Address> addressListCopy)
+    {
+        System.out.println("Test remove all");
+        
+        System.out.println("Number of elements in list before remove all: " + addressList.size());
+        addressList.removeAll(addressListCopy);
+        System.out.println("Number of elements in list after remove all: " + addressList.size());
+    }
+    
     private void question5()
     {
         System.out.println("This is a test to see if netbeans can run at the same time as watching a youtube video");
@@ -200,6 +382,8 @@ public class Main
         System.out.println("That last one was perfect");
     }
 }
+
+
 
 
 

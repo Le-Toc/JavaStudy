@@ -120,13 +120,17 @@ public class Address
     //Methods
     public void print()
     {
-        System.out.println("\n" + "Address ID: " +  this.getID()+ "\n" + "Street Name: " + this.getStreet() + "\n"
+        System.out.println("\n" + "Address ID: " +  this.getID() + ", " + "Street Name: " + this.getStreet() + "\n"
                 + "City: " + this.getCity() + " State: " + this.getState() + " Postal Code: " + this.getPostalCode()+ "\n");
     }
     
     public boolean comesBefore(Address other)
     {
-        return this.postalCode < other.postalCode;
+        if(this.postalCode < other.postalCode)
+            return true;
+        
+        else
+            return false;
     }
     
     
