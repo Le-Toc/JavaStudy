@@ -63,25 +63,29 @@ public class Main
     
     private void arrayListExamples()
     {
-        ArrayList<Address> addressList = new ArrayList();
+        //ArrayList addressList = new ArrayList();
+        ArrayListExamples arrayListExample = new ArrayListExamples();
         
         //Add
-        addressList = arrayListExampleAdd(addressList);
-        print(addressList);
+        arrayListExample.add();
+        arrayListExample.print("arrayListExample");
         
         //Add With Index
-        addressList = arrayListExampleAddWithAnIndex(addressList);
-        print(addressList);
+        arrayListExample.addWithIndex();
+        arrayListExample.print("arrayListExample");
         
         //Clear
-        addressList = arrayListExampleClear(addressList);
-        print(addressList);
+        arrayListExample.clear();
+        arrayListExample.print("arrayListExample");
         
         //Clone
-        addressList = arrayListExampleAdd(addressList);
-        ArrayList<Address> addressListCopy = arrayListExampleClone(addressList);
-        print(addressListCopy);
+        ArrayList<Address> arrayListExampleCopy = arrayListExample.arrayListExamplesClone();
         
+        //addressList = arrayListExampleAdd(addressList);
+        //ArrayList<Address> addressListCopy = arrayListExampleClone(addressList);
+        //print(addressListCopy);
+        
+        /*
         //Contains
         arrayListExampleContains(addressList);
         
@@ -104,21 +108,7 @@ public class Main
         print(addressList, "addressList");
         print(addressListCopy, "addressListCopy");
         arrayListEeampleRemoveAll(addressList, addressListCopy);
-    }
-
-    private ArrayList<Address> arrayListExampleAdd(ArrayList<Address> addressList)
-    {
-        System.out.println("Test Add");
-        
-        Address a0 = new Address();
-        Address a1 = new Address(1, 1, 0001, "Ballinurd", "Kilkerley", "Dundalk");
-        Address a2 = new Address(2, 2, "24 Willow Grove", "Carrick Rd", "Dundalk");
-        
-        addressList.add(a0);
-        addressList.add(a1);
-        addressList.add(a2);
-        
-        return addressList;
+        */
     }
     
     private void print(ArrayList<Address> addressList)
@@ -156,6 +146,21 @@ public class Main
             System.out.println(name + a.getID());
             a.print();                                                                          //Call the print method that relates to the object called "a".
         });
+    }
+
+    private ArrayList<Address> arrayListExampleAdd(ArrayList<Address> addressList)
+    {
+        System.out.println("Test Add");
+        
+        Address a0 = new Address();
+        Address a1 = new Address(1, 1, 0001, "Ballinurd", "Kilkerley", "Dundalk");
+        Address a2 = new Address(2, 2, "24 Willow Grove", "Carrick Rd", "Dundalk");
+        
+        addressList.add(a0);
+        addressList.add(a1);
+        addressList.add(a2);
+        
+        return addressList;
     }
 
     private ArrayList<Address> arrayListExampleAddWithAnIndex(ArrayList<Address> addressList)
