@@ -13,9 +13,10 @@ import java.util.*;
     private void start()
     {
         //question2();
-<span class="fc" id="L16">        question4();</span>
-<span class="fc" id="L17">        question5();</span>
-<span class="fc" id="L18">    }</span>
+        //question4();
+<span class="fc" id="L17">        arrayListExamples();</span>
+        //question5();
+<span class="fc" id="L19">    }</span>
     
     private void question2()
     {
@@ -25,14 +26,14 @@ import java.util.*;
         message “Limit exceeded”.
         */
         
-<span class="nc" id="L28">        Tally tally = new Tally();</span>
-<span class="nc" id="L29">        tally.setLimit(10);</span>
+<span class="nc" id="L29">        Tally tally = new Tally();</span>
+<span class="nc" id="L30">        tally.setLimit(10);</span>
         
-<span class="nc bnc" id="L31" title="All 2 branches missed.">        for(int i = 0; i &lt; 100; i++)</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">        for(int i = 0; i &lt; 100; i++)</span>
         {
-<span class="nc" id="L33">            tally.increaseTally();</span>
+<span class="nc" id="L34">            tally.increaseTally();</span>
         }
-<span class="nc" id="L35">    }</span>
+<span class="nc" id="L36">    }</span>
 
     private void question4()
     {
@@ -44,162 +45,350 @@ import java.util.*;
         code.
         */
         
-<span class="fc" id="L47">        Address a0 = new Address();</span>
-<span class="fc" id="L48">        Address a1 = new Address(1, 1, 0001, &quot;Ballinurd&quot;, &quot;Kilkerley&quot;, &quot;Dundalk&quot;);</span>
-<span class="fc" id="L49">        Address a2 = new Address(2, 2, &quot;24 Willow Grove&quot;, &quot;Carrick Rd&quot;, &quot;Dundalk&quot;);</span>
-        //a0.print();
-        //a1.print();
-        //a2.print();
+        //Create some new addresses
+<span class="nc" id="L49">        Address a0 = new Address();</span>
+<span class="nc" id="L50">        Address a1 = new Address(1, 1, 0001, &quot;Ballinurd&quot;, &quot;Kilkerley&quot;, &quot;Dundalk&quot;);</span>
+<span class="nc" id="L51">        Address a2 = new Address(2, 2, &quot;24 Willow Grove&quot;, &quot;Carrick Rd&quot;, &quot;Dundalk&quot;);</span>
         
+        //Test the print method
+<span class="nc" id="L54">        a0.print();</span>
+<span class="nc" id="L55">        a1.print();</span>
+<span class="nc" id="L56">        a2.print();</span>
         
-<span class="fc" id="L55">        System.out.println(&quot;Test Add&quot;);</span>
+        //Test the comesBefore method
+<span class="nc" id="L59">        System.out.println(a0.comesBefore(a1));//Should return true</span>
+<span class="nc" id="L60">        System.out.println(a2.comesBefore(a1));//Should return false</span>
+<span class="nc" id="L61">        System.out.println(a1.comesBefore(a1));//Should return false</span>
+<span class="nc" id="L62">    }</span>
+    
+    private void arrayListExamples()
+    {
+        //ArrayList addressList = new ArrayList();
+<span class="fc" id="L67">        ArrayListExamples arrayListExample = new ArrayListExamples();</span>
         
-<span class="fc" id="L57">        ArrayList&lt;Address&gt; addressList = new ArrayList&lt;Address&gt;();</span>
-<span class="fc" id="L58">        addressList.add(a0);</span>
-<span class="fc" id="L59">        addressList.add(a1);</span>
-<span class="fc" id="L60">        addressList.add(a2);</span>
+        //Add
+<span class="fc" id="L70">        arrayListExample.add();</span>
+<span class="fc" id="L71">        arrayListExample.print(&quot;arrayListExample&quot;);</span>
         
-<span class="fc bfc" id="L62" title="All 2 branches covered.">        for(Address a : addressList)</span>
-<span class="fc" id="L63">            a.print();</span>
+        //Add With Index
+<span class="fc" id="L74">        arrayListExample.addWithIndex();</span>
+<span class="fc" id="L75">        arrayListExample.print(&quot;arrayListExample&quot;);</span>
         
+        //Clear
+<span class="fc" id="L78">        arrayListExample.clear();</span>
+<span class="fc" id="L79">        arrayListExample.print(&quot;arrayListExample&quot;);</span>
         
+        //Clone
+<span class="fc" id="L82">        ArrayList&lt;Address&gt; arrayListExampleCopy = arrayListExample.arrayListExamplesClone();</span>
         
-<span class="fc" id="L67">        System.out.println(&quot;Test Add With An Index&quot;);</span>
+        //addressList = arrayListExampleAdd(addressList);
+        //ArrayList&lt;Address&gt; addressListCopy = arrayListExampleClone(addressList);
+        //print(addressListCopy);
         
-<span class="fc" id="L69">        Address newAddress = new Address(3,3, 0003, &quot;123&quot;, &quot;Fack St&quot;, &quot;Louth&quot;);</span>
-<span class="fc" id="L70">        addressList.add(1, newAddress);</span>
+        /*
+        //Contains
+        arrayListExampleContains(addressList);
         
-<span class="fc bfc" id="L72" title="All 2 branches covered.">        for(Address a : addressList)</span>
-<span class="fc" id="L73">            a.print();</span>
+        //IndexOf
+        arrayListExampleIndexOf();
         
+        //IsEmpty
+        arrayListExampleIsEmpty(addressList);
         
+        //Remove
+        arrayListEeampleRemove(addressList);
         
-<span class="fc" id="L77">        System.out.println(&quot;Test Clear&quot;);</span>
-<span class="fc" id="L78">        addressList.clear();</span>
+        //RemoveAll
+        addressList.clear();
+        addressListCopy.clear();
         
-<span class="pc bpc" id="L80" title="1 of 2 branches missed.">        for(Address a : addressList)</span>
-<span class="nc" id="L81">            a.print();</span>
+        addressList = arrayListExampleAdd(addressList);
+        addressListCopy = arrayListExampleAdd(addressList);
         
+        print(addressList, &quot;addressList&quot;);
+        print(addressListCopy, &quot;addressListCopy&quot;);
+        arrayListEeampleRemoveAll(addressList, addressListCopy);
+        */
+<span class="fc" id="L112">    }</span>
+    
+    private void print(ArrayList&lt;Address&gt; addressList)
+    {
+        /*
+        Normal For Each Loop
         
+        for (Address a : addressList)
+        {
+            a.print();
+        }
+        */
         
-<span class="fc" id="L85">        System.out.println(&quot;Test Clone&quot;);</span>
+        //Instead of using a for each loop you can use the foreach method in arrayList
+<span class="nc" id="L126">        addressList.forEach((a) -&gt;                                                              //Declare &quot;a&quot; to be temporary variable of the same type as the elements in addressList.  Then for each &quot;a&quot; in addressList do the following...</span>
+        {
+<span class="nc" id="L128">            a.print();                                                                          //Call the print method that relates to the object called &quot;a&quot;.</span>
+<span class="nc" id="L129">        });</span>
+<span class="nc" id="L130">    }</span>
+    
+    private void print(ArrayList&lt;Address&gt; addressList, String name)
+    {
+        /*
+        Normal For Each Loop
         
-<span class="fc" id="L87">        addressList.add(a0);</span>
-<span class="fc" id="L88">        addressList.add(a1);</span>
-<span class="fc" id="L89">        addressList.add(a2);</span>
+        for (Address a : addressList)
+        {
+            a.print();
+        }
+        */
         
-<span class="fc" id="L91">        ArrayList&lt;Address&gt; secondList = (ArrayList) addressList.clone();</span>
-        
-<span class="fc bfc" id="L93" title="All 2 branches covered.">        for(Address a : secondList)</span>
-<span class="fc" id="L94">            a.print();</span>
-        
-        
-        
-<span class="fc" id="L98">        System.out.println(&quot;Test Contains Using A Predevined Object&quot;);</span>
-        
-<span class="pc bpc" id="L100" title="1 of 2 branches missed.">        if(addressList.contains(a0))</span>
-<span class="fc" id="L101">            System.out.println(&quot;True&quot;);</span>
-        else 
-<span class="nc" id="L103">            System.out.println(&quot;False&quot;);</span>
-        
-        
-<span class="fc" id="L106">        System.out.println(&quot;Test Contains Using A Declared Object in the called&quot;);</span>
-        
-<span class="pc bpc" id="L108" title="1 of 2 branches missed.">        if(addressList.contains(new Address(1, 1, 0001, &quot;Ballinurd&quot;, &quot;Kilkerley&quot;, &quot;Dundalk&quot;)))</span>
-<span class="nc" id="L109">            System.out.println(&quot;True&quot;);</span>
-        else 
-<span class="fc" id="L111">            System.out.println(&quot;False&quot;);</span>
-        
-        
-<span class="fc" id="L114">        System.out.println(&quot;Test Contains Using A Predevined Object but with a different name&quot;);</span>
-        
-<span class="fc" id="L116">        Address a4 = new Address(1, 1, 0001, &quot;Ballinurd&quot;, &quot;Kilkerley&quot;, &quot;Dundalk&quot;);</span>
-        
-<span class="pc bpc" id="L118" title="1 of 2 branches missed.">        if(addressList.contains(a4))</span>
-<span class="nc" id="L119">            System.out.println(&quot;True&quot;);</span>
-        else 
-<span class="fc" id="L121">            System.out.println(&quot;False&quot;);</span>
-        
-        
-<span class="fc" id="L124">        System.out.println(&quot;Contains will return true only if you search for an object in the list with the same name&quot;);</span>
-        
-        
-        
-<span class="fc" id="L128">        System.out.println(&quot;Test indexOf&quot;);</span>
-<span class="fc" id="L129">        System.out.println(addressList.indexOf(a2));</span>
-        
-        
-<span class="fc" id="L132">        System.out.println(&quot;Test isEmpty&quot;);</span>
-<span class="pc bpc" id="L133" title="1 of 2 branches missed.">        if(addressList.isEmpty())</span>
-<span class="nc" id="L134">            System.out.println(&quot;List is empty&quot;);</span>
-        
-<span class="pc bpc" id="L136" title="1 of 2 branches missed.">        if(!addressList.isEmpty())</span>
-<span class="fc" id="L137">            System.out.println(&quot;List is not empty&quot;);</span>
-        
-<span class="fc" id="L139">        addressList.clear();</span>
-        
-<span class="pc bpc" id="L141" title="1 of 2 branches missed.">        if(addressList.isEmpty())</span>
-<span class="fc" id="L142">            System.out.println(&quot;List is empty&quot;);</span>
-        
-        
-        
-<span class="fc" id="L146">        System.out.println(&quot;Test remove&quot;);</span>
-        
-<span class="fc" id="L148">        addressList.add(a0);</span>
-<span class="fc" id="L149">        addressList.add(a1);</span>
-<span class="fc" id="L150">        addressList.add(a2);</span>
-        
-<span class="fc bfc" id="L152" title="All 2 branches covered.">        for(Address a : addressList)</span>
-<span class="fc" id="L153">            a.print();</span>
-        
-<span class="fc" id="L155">        addressList.remove(a0);</span>
-        
-<span class="fc bfc" id="L157" title="All 2 branches covered.">        for(Address a : addressList)</span>
-<span class="fc" id="L158">            a.print();</span>
-        
-<span class="fc" id="L160">        addressList.add(0, a0);</span>
-        
-<span class="fc bfc" id="L162" title="All 2 branches covered.">        for(Address a : addressList)</span>
-<span class="fc" id="L163">            a.print();</span>
-        
-<span class="fc" id="L165">        addressList.remove(0);</span>
-        
-<span class="fc bfc" id="L167" title="All 2 branches covered.">        for(Address a : addressList)</span>
-<span class="fc" id="L168">            a.print();</span>
-        
-        
-<span class="fc" id="L171">        System.out.println(&quot;Test remove all&quot;);</span>
-        
-<span class="fc" id="L173">        addressList.removeAll(secondList);</span>
-        
-        
-        
-        
-        
-        //Test comesBefore
-        //First Test should come out true
-<span class="fc" id="L181">        boolean doesComeBefore = a1.comesBefore(a2);</span>
-        //System.out.println(doesComeBefore);
-        
-        //Should come out false
-<span class="fc" id="L185">        doesComeBefore = a2.comesBefore(a1);</span>
-        //System.out.println(doesComeBefore);
-        
-        //Should come out false
-<span class="fc" id="L189">        doesComeBefore = a1.comesBefore(a1);</span>
-        //System.out.println(doesComeBefore);
-<span class="fc" id="L191">    }</span>
+        //Instead of using a for each loop you can use the foreach method in arrayList
+<span class="nc" id="L144">        addressList.forEach((a) -&gt;                                                              //Declare &quot;a&quot; to be temporary variable of the same type as the elements in addressList.  Then for each &quot;a&quot; in addressList do the following...</span>
+        {
+<span class="nc" id="L146">            System.out.println(name + a.getID());</span>
+<span class="nc" id="L147">            a.print();                                                                          //Call the print method that relates to the object called &quot;a&quot;.</span>
+<span class="nc" id="L148">        });</span>
+<span class="nc" id="L149">    }</span>
 
+    private ArrayList&lt;Address&gt; arrayListExampleAdd(ArrayList&lt;Address&gt; addressList)
+    {
+<span class="nc" id="L153">        System.out.println(&quot;Test Add&quot;);</span>
+        
+<span class="nc" id="L155">        Address a0 = new Address();</span>
+<span class="nc" id="L156">        Address a1 = new Address(1, 1, 0001, &quot;Ballinurd&quot;, &quot;Kilkerley&quot;, &quot;Dundalk&quot;);</span>
+<span class="nc" id="L157">        Address a2 = new Address(2, 2, &quot;24 Willow Grove&quot;, &quot;Carrick Rd&quot;, &quot;Dundalk&quot;);</span>
+        
+<span class="nc" id="L159">        addressList.add(a0);</span>
+<span class="nc" id="L160">        addressList.add(a1);</span>
+<span class="nc" id="L161">        addressList.add(a2);</span>
+        
+<span class="nc" id="L163">        return addressList;</span>
+    }
+
+    private ArrayList&lt;Address&gt; arrayListExampleAddWithAnIndex(ArrayList&lt;Address&gt; addressList)
+    {
+<span class="nc" id="L168">        System.out.println(&quot;Test Add With An Index&quot;);</span>
+        
+<span class="nc" id="L170">        Address newAddress = new Address(3,3, 0003, &quot;123&quot;, &quot;Fack St&quot;, &quot;Louth&quot;);</span>
+<span class="nc" id="L171">        addressList.add(1, newAddress);</span>
+        
+<span class="nc" id="L173">        return addressList;</span>
+    }
+
+    private ArrayList&lt;Address&gt; arrayListExampleClear(ArrayList&lt;Address&gt; addressList)
+    {
+<span class="nc" id="L178">        System.out.println(&quot;Test Clear&quot;);</span>
+<span class="nc" id="L179">        addressList.clear();</span>
+<span class="nc" id="L180">        return addressList;</span>
+    }
+
+    private ArrayList&lt;Address&gt; arrayListExampleClone(ArrayList&lt;Address&gt; addressList)
+    {
+<span class="nc" id="L185">        System.out.println(&quot;Test Clone&quot;);</span>
+        
+<span class="nc" id="L187">        ArrayList&lt;Address&gt; addressListCopy = (ArrayList) addressList.clone();//Will not work if you don't cast to a arrayList</span>
+        
+<span class="nc" id="L189">        return addressListCopy;</span>
+    }
+
+    private void arrayListExampleContains(ArrayList&lt;Address&gt; addressList)
+    {
+<span class="nc" id="L194">        arrayListExampleContainsUsingAPredevinedObject(addressList);</span>
+<span class="nc" id="L195">        arrayListExampleContainsUsingADeclaredObject(addressList);</span>
+<span class="nc" id="L196">        arrayListExampleContainsUsingAPredevinedObjectWithDifferentName(addressList);</span>
+        
+<span class="nc" id="L198">        System.out.println(&quot;Contains will return true only if you search for an object in the list with the same name&quot;);</span>
+<span class="nc" id="L199">    }</span>
+
+    private void arrayListExampleContainsUsingAPredevinedObject(ArrayList&lt;Address&gt; addressList)
+    {
+<span class="nc" id="L203">        System.out.println(&quot;Test Contains Using A Predevined Object&quot;);</span>
+        
+<span class="nc" id="L205">        Address a0 = new Address();</span>
+        
+<span class="nc bnc" id="L207" title="All 2 branches missed.">        if(addressList.contains(a0))</span>
+<span class="nc" id="L208">            System.out.println(&quot;True&quot;);</span>
+        else 
+<span class="nc" id="L210">            System.out.println(&quot;False&quot;);</span>
+<span class="nc" id="L211">    }</span>
+
+    private void arrayListExampleContainsUsingADeclaredObject(ArrayList&lt;Address&gt; addressList)
+    {
+<span class="nc" id="L215">        System.out.println(&quot;Test Contains Using A Declared Object in the called&quot;);</span>
+        
+<span class="nc bnc" id="L217" title="All 2 branches missed.">        if(addressList.contains(new Address(1, 1, 0001, &quot;Ballinurd&quot;, &quot;Kilkerley&quot;, &quot;Dundalk&quot;)))</span>
+<span class="nc" id="L218">            System.out.println(&quot;True&quot;);</span>
+        else 
+<span class="nc" id="L220">            System.out.println(&quot;False&quot;);</span>
+<span class="nc" id="L221">    }</span>
+
+    private void arrayListExampleContainsUsingAPredevinedObjectWithDifferentName(ArrayList&lt;Address&gt; addressList)
+    {
+<span class="nc" id="L225">        System.out.println(&quot;Test Contains Using A Predevined Object but with a different name&quot;);</span>
+        
+<span class="nc" id="L227">        Address a4 = new Address(1, 1, 0001, &quot;Ballinurd&quot;, &quot;Kilkerley&quot;, &quot;Dundalk&quot;);</span>
+        
+<span class="nc bnc" id="L229" title="All 2 branches missed.">        if(addressList.contains(a4))</span>
+<span class="nc" id="L230">            System.out.println(&quot;True&quot;);</span>
+        else 
+<span class="nc" id="L232">            System.out.println(&quot;False&quot;);</span>
+<span class="nc" id="L233">    }</span>
+
+    private void arrayListExampleIndexOf()
+    {
+<span class="nc" id="L237">        System.out.println(&quot;Test indexOf:&quot;);</span>
+        
+        //Tests
+        //Test 1: Test when arrayList is declared in method and elements are added
+        //Test 2: Test when empty arrayList is added in as an argument and elements are added to it in the method
+        //Test 3: Test when a full arrayList is added in as an argument and elements arn't added
+        
+        //Test 1
+<span class="nc" id="L245">        arrayListExampleIndexOfTest1();</span>
+        
+        //Test 2
+<span class="nc" id="L248">        ArrayList&lt;Address&gt; addressList = new ArrayList();</span>
+<span class="nc" id="L249">        arrayListExampleIndexOfTest2(addressList);</span>
+        
+        //Test 3
+<span class="nc" id="L252">        Address a0 = new Address();</span>
+<span class="nc" id="L253">        Address a1 = new Address(1, 1, 0001, &quot;Ballinurd&quot;, &quot;Kilkerley&quot;, &quot;Dundalk&quot;);</span>
+<span class="nc" id="L254">        Address a2 = new Address(2, 2, &quot;24 Willow Grove&quot;, &quot;Carrick Rd&quot;, &quot;Dundalk&quot;);</span>
+        
+<span class="nc" id="L256">        addressList.add(a0);</span>
+<span class="nc" id="L257">        addressList.add(a1);</span>
+<span class="nc" id="L258">        addressList.add(a2);</span>
+        
+<span class="nc" id="L260">        arrayListExampleIndexOfTest3(addressList);</span>
+        
+<span class="nc" id="L262">        System.out.println(&quot;Test 3 is the only test that didn't work.&quot;);</span>
+<span class="nc" id="L263">    }</span>
+
+    private void arrayListExampleIndexOfTest1()
+    {
+        //Test 1: Test when arrayList is declared in method and elements are added to the arrayList in the same method
+<span class="nc" id="L268">        System.out.println(&quot;Test 1: Test when arrayList is declared in method and elements are added&quot;);</span>
+        
+<span class="nc" id="L270">        ArrayList&lt;Address&gt; addressList = new ArrayList();</span>
+        
+<span class="nc" id="L272">        Address a0 = new Address();</span>
+<span class="nc" id="L273">        Address a1 = new Address(1, 1, 0001, &quot;Ballinurd&quot;, &quot;Kilkerley&quot;, &quot;Dundalk&quot;);</span>
+<span class="nc" id="L274">        Address a2 = new Address(2, 2, &quot;24 Willow Grove&quot;, &quot;Carrick Rd&quot;, &quot;Dundalk&quot;);</span>
+        
+<span class="nc" id="L276">        addressList.add(a0);</span>
+<span class="nc" id="L277">        addressList.add(a1);</span>
+<span class="nc" id="L278">        addressList.add(a2);</span>
+        
+<span class="nc" id="L280">        System.out.println(addressList.indexOf(a0));</span>
+<span class="nc" id="L281">        System.out.println(addressList.indexOf(a1));</span>
+<span class="nc" id="L282">        System.out.println(addressList.indexOf(a2));</span>
+<span class="nc" id="L283">        System.out.println(addressList.indexOf(new Address(2, 2, &quot;24 Willow Grove&quot;, &quot;Carrick Rd&quot;, &quot;Dundalk&quot;)));</span>
+<span class="nc" id="L284">    }</span>
+
+    private void arrayListExampleIndexOfTest2(ArrayList&lt;Address&gt; addressList)
+    {
+        //Test 2: Test when empty arrayList is passed in as an argument and elements are added to it in the method
+<span class="nc" id="L289">        System.out.println(&quot;Test 2: Test when empty arrayList is added in as an argument and elements are added to it in the method&quot;);</span>
+        
+<span class="nc" id="L291">        Address a0 = new Address();</span>
+<span class="nc" id="L292">        Address a1 = new Address(1, 1, 0001, &quot;Ballinurd&quot;, &quot;Kilkerley&quot;, &quot;Dundalk&quot;);</span>
+<span class="nc" id="L293">        Address a2 = new Address(2, 2, &quot;24 Willow Grove&quot;, &quot;Carrick Rd&quot;, &quot;Dundalk&quot;);</span>
+        
+<span class="nc" id="L295">        addressList.add(a0);</span>
+<span class="nc" id="L296">        addressList.add(a1);</span>
+<span class="nc" id="L297">        addressList.add(a2);</span>
+        
+<span class="nc" id="L299">        System.out.println(addressList.indexOf(a0));</span>
+<span class="nc" id="L300">        System.out.println(addressList.indexOf(a1));</span>
+<span class="nc" id="L301">        System.out.println(addressList.indexOf(a2));</span>
+<span class="nc" id="L302">        System.out.println(addressList.indexOf(new Address(2, 2, &quot;24 Willow Grove&quot;, &quot;Carrick Rd&quot;, &quot;Dundalk&quot;)));</span>
+<span class="nc" id="L303">    }</span>
+
+    private void arrayListExampleIndexOfTest3(ArrayList&lt;Address&gt; addressList)
+    {
+        //Test 3: Test when a full arrayList is passed in as an argument and elements are not added to the arrayList
+<span class="nc" id="L308">        System.out.println(&quot;Test 3: Test when a full arrayList is added in as an argument and elements arn't added&quot;);</span>
+        
+<span class="nc" id="L310">        Address a0 = new Address();</span>
+<span class="nc" id="L311">        Address a1 = new Address(1, 1, 0001, &quot;Ballinurd&quot;, &quot;Kilkerley&quot;, &quot;Dundalk&quot;);</span>
+<span class="nc" id="L312">        Address a2 = new Address(2, 2, &quot;24 Willow Grove&quot;, &quot;Carrick Rd&quot;, &quot;Dundalk&quot;);</span>
+        
+<span class="nc" id="L314">        System.out.println(addressList.indexOf(a0));</span>
+<span class="nc" id="L315">        System.out.println(addressList.indexOf(a1));</span>
+<span class="nc" id="L316">        System.out.println(addressList.indexOf(a2));</span>
+<span class="nc" id="L317">        System.out.println(addressList.indexOf(new Address(2, 2, &quot;24 Willow Grove&quot;, &quot;Carrick Rd&quot;, &quot;Dundalk&quot;)));</span>
+<span class="nc" id="L318">    }</span>
+
+    private void arrayListExampleIsEmpty(ArrayList&lt;Address&gt; addressList)
+    {
+<span class="nc" id="L322">        System.out.println(&quot;\nTest isEmpty:&quot;);</span>
+        
+<span class="nc" id="L324">        System.out.println(&quot;Should print out \&quot;List is not empty\&quot;.&quot;);</span>
+<span class="nc bnc" id="L325" title="All 2 branches missed.">        if(addressList.isEmpty())</span>
+<span class="nc" id="L326">            System.out.println(&quot;List is empty&quot;);</span>
+        
+<span class="nc bnc" id="L328" title="All 2 branches missed.">        else if(!addressList.isEmpty())</span>
+<span class="nc" id="L329">            System.out.println(&quot;List is not empty&quot;);</span>
+        
+<span class="nc" id="L331">        addressList.clear();</span>
+        
+<span class="nc" id="L333">        System.out.println(&quot;\nShould print out \&quot;List is empty\&quot;.&quot;);   </span>
+<span class="nc bnc" id="L334" title="All 2 branches missed.">        if(addressList.isEmpty())</span>
+<span class="nc" id="L335">            System.out.println(&quot;List is empty&quot;);</span>
+<span class="nc" id="L336">    }</span>
+
+    private void arrayListEeampleRemove(ArrayList&lt;Address&gt; addressList)
+    {
+<span class="nc" id="L340">        System.out.println(&quot;\nTest Remove:&quot;);</span>
+        
+<span class="nc" id="L342">        Address a0 = new Address();</span>
+<span class="nc" id="L343">        Address a1 = new Address(1, 1, 0001, &quot;Ballinurd&quot;, &quot;Kilkerley&quot;, &quot;Dundalk&quot;);</span>
+<span class="nc" id="L344">        Address a2 = new Address(2, 2, &quot;24 Willow Grove&quot;, &quot;Carrick Rd&quot;, &quot;Dundalk&quot;);</span>
+        
+<span class="nc" id="L346">        addressList.add(a0);</span>
+<span class="nc" id="L347">        addressList.add(a1);</span>
+<span class="nc" id="L348">        addressList.add(a2);</span>
+        
+<span class="nc" id="L350">        System.out.println(&quot;Should print out the full list.&quot;);</span>
+<span class="nc" id="L351">        print(addressList);</span>
+        
+<span class="nc" id="L353">        addressList.remove(a0);</span>
+        
+        
+<span class="nc" id="L356">        System.out.println(&quot;Removed the first element using the element name.&quot;);</span>
+<span class="nc" id="L357">        print(addressList);</span>
+        
+        
+<span class="nc" id="L360">        System.out.println(&quot;Added the first element back into the list in the same spot.&quot;);</span>
+<span class="nc" id="L361">        addressList.add(0, a0);</span>
+        
+<span class="nc" id="L363">        print(addressList);</span>
+        
+        
+<span class="nc" id="L366">        addressList.remove(0);</span>
+<span class="nc" id="L367">        System.out.println(&quot;Removed the first element again using the element number.&quot;);</span>
+<span class="nc" id="L368">        print(addressList);</span>
+<span class="nc" id="L369">    }</span>
+
+    private void arrayListEeampleRemoveAll(ArrayList&lt;Address&gt; addressList, ArrayList&lt;Address&gt; addressListCopy)
+    {
+<span class="nc" id="L373">        System.out.println(&quot;Test remove all&quot;);</span>
+        
+<span class="nc" id="L375">        System.out.println(&quot;Number of elements in list before remove all: &quot; + addressList.size());</span>
+<span class="nc" id="L376">        addressList.removeAll(addressListCopy);</span>
+<span class="nc" id="L377">        System.out.println(&quot;Number of elements in list after remove all: &quot; + addressList.size());</span>
+<span class="nc" id="L378">    }</span>
+    
     private void question5()
     {
-<span class="fc" id="L195">        System.out.println(&quot;This is a test to see if netbeans can run at the same time as watching a youtube video&quot;);</span>
-<span class="fc" id="L196">        System.out.println(&quot;So acually writing the code seems to be fine, however Joe Rogan froze for a second when the code was compiling&quot;);</span>
-<span class="fc" id="L197">        System.out.println(&quot;Next step would be to further test how netbeans works while coding.&quot;);</span>
-<span class="fc" id="L198">        System.out.println(&quot;Possible Solution:  See what it's like to edit, run, and compile java programes using he command line!  That sounds cool.&quot;);</span>
-<span class="fc" id="L199">        System.out.println(&quot;That last compile worked well.  There was no lag in the video and at the same time I moved the windows to be split 50 50&quot;);</span>
-<span class="fc" id="L200">        System.out.println(&quot;That last one was perfect&quot;);</span>
-<span class="fc" id="L201">    }</span>
+<span class="nc" id="L382">        System.out.println(&quot;This is a test to see if netbeans can run at the same time as watching a youtube video&quot;);</span>
+<span class="nc" id="L383">        System.out.println(&quot;So acually writing the code seems to be fine, however Joe Rogan froze for a second when the code was compiling&quot;);</span>
+<span class="nc" id="L384">        System.out.println(&quot;Next step would be to further test how netbeans works while coding.&quot;);</span>
+<span class="nc" id="L385">        System.out.println(&quot;Possible Solution:  See what it's like to edit, run, and compile java programes using he command line!  That sounds cool.&quot;);</span>
+<span class="nc" id="L386">        System.out.println(&quot;That last compile worked well.  There was no lag in the video and at the same time I moved the windows to be split 50 50&quot;);</span>
+<span class="nc" id="L387">        System.out.println(&quot;That last one was perfect&quot;);</span>
+<span class="nc" id="L388">    }</span>
 }
+
+
 
 
 

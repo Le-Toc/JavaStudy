@@ -120,13 +120,17 @@ public class Address
     //Methods
     public void print()
     {
-<span class="fc" id="L123">        System.out.println(&quot;\n&quot; + &quot;Address ID: &quot; +  this.getID()+ &quot;\n&quot; + &quot;Street Name: &quot; + this.getStreet() + &quot;\n&quot;</span>
+<span class="fc" id="L123">        System.out.println(&quot;\n&quot; + &quot;Address ID: &quot; +  this.getID() + &quot;, &quot; + &quot;Street Name: &quot; + this.getStreet() + &quot;\n&quot;</span>
 <span class="fc" id="L124">                + &quot;City: &quot; + this.getCity() + &quot; State: &quot; + this.getState() + &quot; Postal Code: &quot; + this.getPostalCode()+ &quot;\n&quot;);</span>
 <span class="fc" id="L125">    }</span>
     
     public boolean comesBefore(Address other)
     {
-<span class="fc bfc" id="L129" title="All 2 branches covered.">        return this.postalCode &lt; other.postalCode;</span>
+<span class="nc bnc" id="L129" title="All 2 branches missed.">        if(this.postalCode &lt; other.postalCode)</span>
+<span class="nc" id="L130">            return true;</span>
+        
+        else
+<span class="nc" id="L133">            return false;</span>
     }
     
     

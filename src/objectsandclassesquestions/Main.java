@@ -74,12 +74,14 @@ public class Main
         arrayListExample.addWithIndex();
         arrayListExample.print("arrayListExample");
         
+        //Clone
+        ArrayList<Address> arrayListExampleCopy = arrayListExample.arrayListExamplesClone();
+        arrayListExample.print("arrayListExample");
+        print(arrayListExampleCopy, "arrayListExampleCopy");
+        
         //Clear
         arrayListExample.clear();
         arrayListExample.print("arrayListExample");
-        
-        //Clone
-        ArrayList<Address> arrayListExampleCopy = arrayListExample.arrayListExamplesClone();
         
         //addressList = arrayListExampleAdd(addressList);
         //ArrayList<Address> addressListCopy = arrayListExampleClone(addressList);
