@@ -116,6 +116,11 @@ public class Address
         this.state = state;
     }
     
+    public void resetCount()
+    {
+         count = -1;
+    }
+    
     
     //Methods
     public void print()

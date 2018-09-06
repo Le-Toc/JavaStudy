@@ -67,6 +67,7 @@ public class Main
         ArrayListExamples arrayListExample = new ArrayListExamples();
         
         //Add
+        System.out.println("Test Add");
         arrayListExample.add();
         arrayListExample.print("arrayListExample");
         
@@ -83,17 +84,17 @@ public class Main
         arrayListExample.clear();
         arrayListExample.print("arrayListExample");
         
-        //addressList = arrayListExampleAdd(addressList);
-        //ArrayList<Address> addressListCopy = arrayListExampleClone(addressList);
-        //print(addressListCopy);
         
-        /*
         //Contains
-        arrayListExampleContains(addressList);
+        arrayListExample.add();
+        arrayListExample.print("arrayListExample");
+        arrayListExample.contains();
+        
         
         //IndexOf
         arrayListExampleIndexOf();
         
+        /*
         //IsEmpty
         arrayListExampleIsEmpty(addressList);
         
@@ -150,50 +151,16 @@ public class Main
         });
     }
 
-    private ArrayList<Address> arrayListExampleAdd(ArrayList<Address> addressList)
-    {
-        System.out.println("Test Add");
-        
-        Address a0 = new Address();
-        Address a1 = new Address(1, 1, 0001, "Ballinurd", "Kilkerley", "Dundalk");
-        Address a2 = new Address(2, 2, "24 Willow Grove", "Carrick Rd", "Dundalk");
-        
-        addressList.add(a0);
-        addressList.add(a1);
-        addressList.add(a2);
-        
-        return addressList;
-    }
-
-    private ArrayList<Address> arrayListExampleAddWithAnIndex(ArrayList<Address> addressList)
-    {
-        System.out.println("Test Add With An Index");
-        
-        Address newAddress = new Address(3,3, 0003, "123", "Fack St", "Louth");
-        addressList.add(1, newAddress);
-        
-        return addressList;
-    }
-
-    private ArrayList<Address> arrayListExampleClear(ArrayList<Address> addressList)
-    {
-        System.out.println("Test Clear");
-        addressList.clear();
-        return addressList;
-    }
-
-    private ArrayList<Address> arrayListExampleClone(ArrayList<Address> addressList)
-    {
-        System.out.println("Test Clone");
-        
-        ArrayList<Address> addressListCopy = (ArrayList) addressList.clone();//Will not work if you don't cast to a arrayList
-        
-        return addressListCopy;
-    }
-
     private void arrayListExampleContains(ArrayList<Address> addressList)
     {
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        print(addressList, "addressList");
         arrayListExampleContainsUsingAPredevinedObject(addressList);
+        System.out.println("");
         arrayListExampleContainsUsingADeclaredObject(addressList);
         arrayListExampleContainsUsingAPredevinedObjectWithDifferentName(addressList);
         
@@ -202,6 +169,12 @@ public class Main
 
     private void arrayListExampleContainsUsingAPredevinedObject(ArrayList<Address> addressList)
     {
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        print(addressList, "addressList");
         System.out.println("Test Contains Using A Predevined Object");
         
         Address a0 = new Address();
