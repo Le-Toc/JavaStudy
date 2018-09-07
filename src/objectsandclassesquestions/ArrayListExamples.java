@@ -46,8 +46,6 @@ public class ArrayListExamples
     
     public void addWithIndex()
     {
-        System.out.println("Test Add With An Index");
-        
         Address newAddress = new Address(3, 3, 0003, "123", "Fack St", "Louth");
         list.add(1, newAddress);
     }
@@ -158,6 +156,11 @@ public class ArrayListExamples
         
         list.removeAll(list);
         print("list");
+    }
+
+    int getSize()
+    {
+        return list.size();
     }
 }
 

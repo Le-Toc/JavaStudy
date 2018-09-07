@@ -63,49 +63,56 @@ public class Main
         System.out.println(a1.comesBefore(a1));//Should return false
     }
     
-    private void arrayListExamples()//I set up this method to test the different methods in ArrayList
+    private void arrayListExamples()
     {
+        //I set up this method to test the different methods in ArrayList
+        
         ArrayListExamples arrayListExample = new ArrayListExamples();
         
         //Add
-        System.out.println("Test Add");
+        outputHeading("Test add():");
+        System.out.println("Size of list before add: " + arrayListExample.getSize());
+        output("Call the add method...");
         arrayListExample.add();
-        arrayListExample.print("arrayListExample");
+        System.out.println("Size of list after add: " + arrayListExample.getSize());
         
         //Add With Index
+        outputHeading("Test add() With Index:");
         arrayListExample.addWithIndex();
         arrayListExample.print("arrayListExample");
         
         //Clone
+        outputHeading("Test clone():");
         ArrayList<Address> arrayListExampleCopy = arrayListExample.arrayListExamplesClone();
         arrayListExample.print("arrayListExample");
         print(arrayListExampleCopy, "arrayListExampleCopy");
         
         //Clear
-        output("Test Clear");
+        outputHeading("Test clear():");
         arrayListExample.clear();
         arrayListExample.print("arrayListExample");
         
         //Contains
+        outputHeading("Test contains():");
         arrayListExample.add();
         arrayListExample.print("arrayListExample");
         arrayListExample.contains();
         
         //IndexOf
-        output("Test indexOf()");
+        outputHeading("Test indexOf():");
         arrayListExample.indexOf();
         
         //IsEmpty
-        output("Test isEmpty()");
+        outputHeading("Test isEmpty():");
         arrayListExample.isEmpty();
         
         //Remove
-        output("Test Remove:");
+        outputHeading("Test remove():");
         arrayListExample.add();
         arrayListExample.remove();
         
         //RemoveAll
-        output("Test removeAll():");
+        outputHeading("Test removeAll():");
         arrayListExample.removeAll();
     }
     
@@ -149,6 +156,12 @@ public class Main
     private void output(String string)
     {
         System.out.println(string);
+    }
+    
+    private void outputHeading(String string)
+    {
+        System.out.println("\n/************************* " + string 
+                + " *************************/\n");
     }
 }
 

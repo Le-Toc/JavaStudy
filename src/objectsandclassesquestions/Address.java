@@ -126,7 +126,7 @@ public class Address
     public void print()
     {
         System.out.println("\n" + "Address ID: " +  this.getID() + ", " + "Street Name: " + this.getStreet() + "\n"
-                + "City: " + this.getCity() + " State: " + this.getState() + " Postal Code: " + this.getPostalCode()+ "\n");
+                + "City: " + this.getCity() + " State: " + this.getState() + " Postal Code: " + this.getPostalCode());
     }
     
     public boolean comesBefore(Address other)
