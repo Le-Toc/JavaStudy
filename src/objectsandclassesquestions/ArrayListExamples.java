@@ -71,10 +71,8 @@ public class ArrayListExamples
 
     public void clear()
     {
-        System.out.println("Test Clear");
         list.get(0).resetCount();
         list.clear();
-        
     }
 
     public ArrayList<Address> arrayListExamplesClone()
@@ -101,9 +99,71 @@ public class ArrayListExamples
         else
             System.out.println("List doesn't contain az.");
     }
-    
-    
+
+    public void indexOf()
+    {
+        System.out.println(list.indexOf(a0));
+        System.out.println(list.indexOf(a1));
+        System.out.println(list.indexOf(a2));
+    }
+
+    void isEmpty()
+    {
+        System.out.println("Should print out \"List is not empty\".");
+        
+        if(list.isEmpty())
+            System.out.println("List is empty");
+        
+        else if(!list.isEmpty())
+            System.out.println("List is not empty");
+        
+        clear();
+        
+        System.out.println("Should print out \"List is empty\".");
+        
+        if(list.isEmpty())
+            System.out.println("List is empty");
+    }
+
+    void remove()
+    {
+        System.out.println("Should print out the full list.");
+        print("list");
+        
+        list.remove(a0);
+        
+        System.out.println("Removed the first element using the element name.");
+        print("list");
+        
+        System.out.println("Added the first element back into the list in the same"
+                + " spot.");
+        list.add(0, a0);
+        
+        print("list");
+        
+        list.remove(0);
+        System.out.println("Removed the first element again using the element number.");
+        print("list");
+    }
+
+    void removeAll()
+    {
+        /*
+        You can use removAll to remove all the elements from list that are also
+        in another list.
+        
+        You can also just give it it's own list as an argument and it will
+        remove all of it's own elements.
+        */
+        
+        list.removeAll(list);
+        print("list");
+    }
 }
+
+
+
+
 
 
 
